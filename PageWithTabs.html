@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction To Tabs</title>
+</head>
+
+<body>
+    <div class="tabs">
+        <button class="tab_links" onclick="openTab('event', 'home')">Home</button>
+        <button class="tab_links" onclick="openTab('event', 'about')">About</button>
+        <button class="tab_links" onclick="openTab('event', 'portfolio')">Portfolio</button>
+        <button class="tab_links" onclick="openTab('event', 'contact')">Contact</button>
+    </div>
+
+    <div id="home" class="tabContent">
+        <h1>HOME</h1>
+        <p>This is the <span>home page</span></p>
+    </div>
+    <div id="about" class="tabContent" style="display: none;">
+        <h1>ABOUT</h1>
+        <p>This is the <span>about page</span></p>
+    </div>
+    <div id="portfolio" class="tabContent" style="display: none;">
+        <h1>PORTFOLIO</h1>
+        <p>This is the <span>portfolio page</span></p>
+    </div>
+    <div id="contact" class="tabContent" style="display: none;">
+        <h1>CONTACT</h1>
+        <p>This is the <span>contact page</span></p>
+    </div>
+</body>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, tab_content, tab_links;
+        tab_content = document.getElementsByClassName("tabContent");
+        for (i = 0; i < tab_content.length; i++) {
+            tab_content[i].style.display = "none";
+        }
+        tab_links = document.getElementsByClassName("tab_links");
+        for (i = 0; i < tab_links.length; i++) {
+            tab_links[i].className = tab_links[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    div.tabs {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100px;
+        background-color: #333;
+        border-bottom: 4px solid #ccc;
+        display: flex;
+        gap: 10px;
+        justify-content: right;
+    }
+
+    div.tabs button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+        transition: all 1s ease-in-out;
+    }
+
+    div.tabs button:hover {
+        color: darkcyan;
+        font-size: 1.5rem;
+        transition: all 1s ease-in-out;
+    }
+
+    div.tabContent {
+        margin-top: 100px;
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            text-decoration: underline;
+        }
+
+        p {
+            font-size: 1.4rem;
+
+            span {
+                font-size: 1.7rem;
+                color: #333;
+                text-decoration: underline;
+            }
+        }
+
+    }
+</style>
+
+
+</html>
